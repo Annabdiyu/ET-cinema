@@ -1,27 +1,22 @@
+import "./css/App.css";
+import Favorites from "./pages/favorites";
+import Home from "./pages/home";
+import { Routes, Route } from "react-router-dom";
+import { MovieProvider } from "./contexts/MovieContext";
+import NavBar from "./components/NavBar";
 
-import './css/App.css'
-import Home from './pages/home'
-import Favorite from './pages/favorites'
-import {Routes,Route} from "react-router-dom"
-import NavBar from './components/NavBar'
-
-function App() { 
-
+function App() {
   return (
-    <div>
+    <MovieProvider>
       <NavBar />
-    <main className='main-content'>
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/favorites" element={<Favorite />}/>
-      </Routes>
-    </main>
-    </div> 
-
-
-   
-  )
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+      </main>
+    </MovieProvider>
+  );
 }
 
-
-export default App
+export default App;
